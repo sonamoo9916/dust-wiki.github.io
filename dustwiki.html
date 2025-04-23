@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <!-- <a href='https://ifh.cc/v-yhwgrv' target='_blank'><img src='https://ifh.cc/g/yhwgrv.png' border='0'></a> -->
+    <link rel="icon" type="image/x-icon" href="https://ibb.co/nqPw48cw">
+    <!-- <link rel="apple-touch-icon-precomposed" href="coffine/logo.png"> -->
+    <title>중립론자들 - 먼지위키</title>
+    <link href="css/style.css" type="text/css" rel="stylesheet">
+    <script src="javascript/jquery-1.12.3.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+
+    <script>
+        (function(){
+            emailjs.init("4uEfEZU9iMmL1LqQL"); // EmailJS에서 받은 USER_ID 입력
+        })();
+
+        function openModal() {
+            document.getElementById("inquiryModal").style.display = "block";
+        }
+
+        function closeModal() {
+            document.getElementById("inquiryModal").style.display = "none";
+        }
+
+        const placeholderText = "수정할 내용 > 수정된 내용 순으로 적어주세요.";
+
+        function clearPlaceholder() {
+            const messageBox = document.getElementById("message");
+            if (messageBox.value === placeholderText) {
+                messageBox.value = "";
+            }
+        }
+
+        function restorePlaceholder() {
+            const messageBox = document.getElementById("message");
+            if (messageBox.value.trim() === "") {
+                messageBox.value = placeholderText;
+            }
+        }
+
+        function sendEmail(event) {
+            event.preventDefault(); // 기본 제출 방지
+
+            let message = document.getElementById("message").value.trim();
+
+            if (message === "" || message === placeholderText) {
+                alert("문의 내용을 작성해주세요.");
+                return;
+            }
+
+            emailjs.send("service_iqyxkk4", "template_zjb2bjc", { message })
+                .then(function(response) {
+                    alert("이메일이 성공적으로 전송되었습니다!");
+                    document.getElementById("contactForm").reset(); // 폼 초기화
+                    restorePlaceholder();
+                    closeModal(); // 문의 후 모달 닫기
+                }, function(error) {
+                    alert("이메일 전송 실패: " + JSON.stringify(error));
+                });
+        }
+
+        document.addEventListener("DOMContentLoaded", function () {
+    document.querySelectorAll("h1, h2, h3").forEach(function (title) {
+        let toggle = title.querySelector(".Da");
+
+        if (toggle) {
+            toggle.addEventListener("click", function () {
+                let section = title.nextElementSibling;
+
+                if (section && section.tagName === "HR") {
+                    section = section.nextElementSibling;
+                }
+
+                // 현재 제목 아래의 내용만 접기
+                while (section && section.tagName !== "H1" && section.tagName !== "H2" && section.tagName !== "H3" && section.tagName !== "FOOTER") {
+                    section.style.display = section.style.display === "none" ? "block" : "none";
+                    section = section.nextElementSibling;
+                }
+
+                title.classList.toggle("collapsed-title");
+                toggle.classList.toggle("collapsed");
+            });
+        }
+    });
+});
+
+    </script>
+</head>
+<body>
+    <header>
+        <!-- <a href="https://i.ibb.co/CpPw4s7w/image.png" target="_blank"><img src="https://i.ibb.co/CpPw4s7w/image.png" alt="dustwiki-icon" width="40px" style="margin-top: 5px;"></a> -->
+        <span>먼지위키</span>
+
+        <!-- <div class="search">
+            <input id="search" type="text" placeholder="검색어를 입력하세요." name="terms" onkeydown="enterSearch()">
+            <input type="button" class="img-button">
+        </div>
+        <button onclick="nextMatch()">∨</button>
+        <button onclick="beforeMatch()">∧</button> -->
+        
+    </header>
+
+    <div id="main_header">
+        <div class="title">
+            <h1>중립론자들</h1>
+            <span class="bar">분류: 자캐동맹 | 자캐놀이 | 세계관 | 중립론자들</span>
+        </div>
+        <nav class="main">
+            <div class="main_img">
+                <a href="https://i.ibb.co/chXnbbV5/main-img.jpg" target="_blank"><img src="https://i.ibb.co/chXnbbV5/main-img.jpg" alt="main-img" width="400px"></a>
+                <div class="line"></div>
+                <nav class="ex">
+                    <div class="name">
+                        <span><strong>중립론자들</strong></span>
+                    </div>
+                    <div class="detail">
+                        <div class="con">
+                            <div class="sub">장르</div>
+                            <div class="det">피폐, 시리어스</div>
+                        </div>
+                        <div class="con">
+                            <div class="sub">총관리자</div>
+                            <div class="det">앵러</div>
+                        </div>
+                        <div class="con">
+                            <div class="sub">부관리자</div>
+                            <div class="det">유공, 초밥</div>
+                        </div>
+                        <div class="con">
+                            <div class="sub">일러스트레이터</div>
+                            <div class="det">유공, 이부</div>
+                        </div>
+                        <div class="con">
+                            <div class="sub">제작일</div>
+                            <div class="det">2022년 1월 1일</div>
+                        </div>
+                        <div class="con">
+                            <div class="sub">러닝 SNS</div>
+                            <div class="det">트위터, 디스코드</div>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+                <ul class="contents">
+                    <h3>목차</h3>
+                    <li id="s-r1"><a href="#s-1"><b class="blue">1</b></a>. 개요</li>
+                    <li id="s-r2"><a href="#s-2"><b class="blue">2</b></a>. 줄거리</li>
+                    <li id="s-r3"><a href="#s-3"><b class="blue">3</b></a>. 설정</li>
+                    <ol>
+                        <li id="s-r3.1"><a href="#s-3.1"><b class="blue">3. 1</b></a>. 방사능</li>
+                        <ol>
+                            <li id="s-r3.1.1"><a href="#s-3.1.1"><b class="blue">3. 1. 1</b></a>. 이능력자</li>
+                            <li id="s-r3.1.2"><a href="#s-3.1.2"><b class="blue">3. 1. 2</b></a>. 방사능 괴물</li>
+                        </ol>
+                        <li id="s-r3.2"><a href="#s-3.2"><b class="blue">3. 2</b></a>. 안전구역</li>
+                        <li id="s-r3.3"><a href="#s-3.3"><b class="blue">3. 3</b></a>. 무법지대</li>
+                        <li id="s-r3.4"><a href="#s-3.4"><b class="blue">3. 4</b></a>. 중립론자들</li>
+                        <li id="#s-r3.5"><a href="#s-3.5"><b class="blue">3. 5</b></a>. 동</li>
+                        <ol>
+                            <li id="s-r3.5.1"><a href="#s-3.5.1"><b class="blue">3. 5. 1</b></a>. A동</li>
+                            <li id="s-r3.5.2"><a href="#s-3.5.2"><b class="blue">3. 5. 2</b></a>. B동</li>
+                            <li id="s-r3.5.3"><a href="#s-3.5.3"><b class="blue">3. 5. 3</b></a>. C동</li>
+                            <li id="s-r3.5.4"><a href="#s-3.5.4"><b class="blue">3. 5. 4</b></a>. D동</li>
+                            <li id="s-r3.5.5"><a href="#s-3.5.5"><b class="blue">3. 5. 5</b></a>. L동</li>
+                        </ol>
+                        <li id="#s-r3.6"><a href="#s-3.6"><b class="blue">3. 6</b></a>. 생존자</li>
+                        <ol>
+                            <li id="s-r3.6.1"><a href="#s-3.6.1"><b class="blue">3. 6. 1</b></a>. 직원</li>
+                            <li id="s-r3.6.2"><a href="#s-3.6.2"><b class="blue">3. 6. 2</b></a>. 민간인</li>
+                        </ol>
+                    </ol>
+                    <li id="#s-r4"><a href="#s-4"><b class="blue">4</b></a>. 특징</li>
+                    <li id="#s-r5"><a href="#s-5"><b class="blue">5</b></a>. <a href="#">등장인물</a></li>
+                    <li id="#s-r6"><a href="#s-6"><b class="blue">6</b></a>. 외부링크</li>
+                    <li id="#s-r7"><a href="#s-7"><b class="blue">7</b></a>. 여담</li>
+                </ul>
+        </nav>
+    </div>
+
+    <div class="body">
+        <h1 id="s-1"><span class="Da"></span><a href="#s-r1"><b class="blue">1</b></a>. 개요</h1>
+        <hr />
+        <div class="txt">
+            한국의 방치형 자캐동맹. 총괄진은 앵러<a class="fn1" title="중립론자들의 총괄이다." href="#fn-1"><span id="rfn-1"></span>[1]</a>, 유공, 초밥<a class="fn2" title="2기 부괄모집으로 들어온 인원들이다." href="#fn-2"><span id="rfn-2"></span>[2]</a>으로 총 다섯명.<br><br>
+            줄여서는 중론. 2023년 1월 1일에 개장. 만화로도 연재 중이다.<a class="fn3" title="현재는 휴재중." href="#fn-3"><span id="rfn-3"></span>[3]</a>
+            자캐동맹이 열린 이후 내부 뿐 아닌 외부에서 또한 꽤나 많은 관심을 받아왔다. 현재도 재개장을 기다리는 사람들은 구러너 뿐 아닌 이전에 러닝하지 않았던 사람들의 이목도 끌고있다. 
+
+        </div>
+
+        <h1 id="s-2"><span class="Da"></span><a href="#s-r2"><b class="blue">2</b></a>. 줄거리</h1>
+        <hr />
+        <blockquote class="box_txt">
+            <div class="in_txt">
+                방사능으로 멸망한 세상, 세상의 배경은 참혹하고도 처참하게 붕괴 되어 있었다. 그러나 그런 방사능 속에서 살아남은 자들 평범한 인간과는 다른 능력을 가진 자들 이였다. 이들을 데리고 각자 <b>A, B, C동</b> 구역으로 나뉘어 그 구역의 대표들이 국가적 시스템을 활용해 관리하고 있었다.<br><br>
+                그러나 사소한 계기와 많은 전쟁들로 인해 민간인들의 피해가 거세지자 출신불명에 누군가가 나서기 시작했다. 이른바 <b>중립론자들.</b><br><br>
+                이들은 전쟁에 휘말린 생존해 있는 민간인 구출을 위해 온 자들 이었다. 각자 다른 구역에 있으나 이들은 전쟁에 휘말린 민간인의 희생을 피하게 하려는 자발적인 목표 하에 움직이고 있었다. 허나 그들의 전쟁은 나날이 거세졌고 사소한 계기나 말로도 큰 싸움으로 번지거나 전쟁의 연속 이였다. 이것의 반복은 그리 좋지 만은 않다. 반복은 <b>정신적 고통</b>과 <b>육체적 고통</b>이 강하게 남아 수많은 전쟁에는 <b>많은 아픔과 피로감, 의지 하락, 사명감, 이유 등</b> 정신적으로 힘든 것에 한계가 있다. 육체는 섞어가며 고통조차 느끼지 못하거나 아예 포기하는 자들도 있었을 것이다. 이것은 <b>중립론자들에게도 해당되는 것이다.</b><br><br>
+                이것을 본 대표들을 입을 모아 휴전을 선언하였고 마침내 기나긴 전쟁의 끝이자 따뜻하고 포근한 휴식이 왔다. 이런 휴식은 다들 잊지 못할 휴식이자 기나긴 고통 속에 한 줄기의 빛과도 같았을 것이다. 그러고는 대표들은 전쟁이 아닌 안전 구역 바깥에 있을 생존자, 즉 민간인 구출과 바깥 일을 감지하고 정찰하며 세 구역의 중립론자들은 안전을 위해 평화롭게 살아가려고 노력하였다. 이들은 휴식을 만끽하며 소소하게 일상생활을 맞이하고 있었다. <b>어디에서 나온 건지 모를 괴물이 나오기 전까지는 말이다...</b><br><br>
+                괴물들은 각 구역 회사에서 자주 출몰하였으며, 이 괴물들이 습격한 자리에는 <b>정체불명의 씨앗</b>이 굴러다녔다. 원인은 알 수 없었고 대표들은 이 일에 관해 회의를 하게 되었다.<br><br>
+                몇 달 만에 열린 회의. 다들 이 일에 대해 말하며 서로 이야기를 나눈 결과, 서로가 한 짓이 아님을 확인하고 대표들은 이 일을 긴급 사항으로 여겨 빠른 시일 내에 이 사태의 원인과 각자의 안전을 위해 서로가 협력 하였다.<br><br>
+                이들은 직원들을 파견하여 사태 원흉을 알아 보니 이 사태의  시작 점은 다름 아닌 <b>A동 출입 금지 구역</b>의 폐쇄된 지하철 역임을 알아내었다. 대표들은 그런 소식을 듣자마자 즉시 지하철 역으로 향했고 출입 금지 표지판과 함께 체인으로 둘러싸인 입구를 뒤로 한 채 지하철 역 안쪽으로 들어갔다.<br><br>
+                안쪽으로 들어 갈수록 <b>다른 공기, 느낌, 감각, 소리 등</b>이 온 몸으로 느껴졌으며, 저 멀리 이곳 지하철 역을 나가는 빛이 보였다. 대표들은 그 빛 쪽으로 걸어갔으며 지하철 역을 나온 대표들은, 전혀 다른 광경에 놀라움을 금치 못했다.<br><br>
+                그리고 그곳에는… 다시는 만날 수 없을 것만 같던 과거의 인연들이 자신과 비슷한 모습으로 새로운 안전 구역의 존재와 예상치 못한<br><br>
+                <i><b>동맹 요청을 건넨 이들이 보였다.</b></i>
+            </div>
+        </blockquote>
+        <div class="txt">
+            방사능으로 멸망한 세상인 에코아포칼립스를 다뤘다. 1기는 그나마 일상힐링같은 분위기로 흘러갔으나 2기에서 본격적인 스토리가 진행되며 대체적으로 피폐한 분위기로 흘러가고있다. <i><del class="gray">애초에 피폐하지 않을 수가…</del></i> 1기는 A, B, C동의 일상을 위주, 2기에 D, L동이 들어오며 본격적인 스토리가 진행된다.
+        </div>
+
+        <h1 id="s-3"><span class="Da"></span><a href="#s-r3"><b class="blue">3</b></a>. 설정</h1>
+        <hr />
+        <h2 id="s-3.1"><span class="Da"></span><a href="#s-r3.1"><b class="blue">3. 1</b></a>. 방사능</h1>
+        <hr />
+        <div class="txt">
+            아주 오래전 자연적으로 발생한 1차 방사능 이후, 인류의 발전으로 터져버린 2차 방사능까지 총 두번에 방사능이 흘렀으며 1차 방사능 시절엔 여러 인외들이 생겨났고, 세계가 정확히 멸망한 시점은 2차 방사능이다. 이능력자와 괴물등이 생겨나간것도 대부분 2차 방사능이었다.
+        </div>
+        <h3 id="s-3.1.1"><span class="Da"></span><a href="#s-r3.1.1"><b class="blue">3. 1. 1</b></a>. 이능력자</h1>
+        <hr />
+        <h3 id="s-3.1.2"><span class="Da"></span><a href="#s-r3.1.2"><b class="blue">3. 1. 2</b></a>. 방사능 괴물</h1>
+        <hr />
+
+        <h2 id="s-3.2"><span class="Da"></span><a href="#s-r3.2"><b class="blue">3. 2</b></a>. 안전구역</h1>
+        <hr />
+        <div class="txt">
+            방사능이 터진 후 여러 동들이 생겨나며 해당 동들을 이루는 말이라 해도 된다. 방사능에서 가장 안전한 장소로 A,B,C동 정 가운데 공기정화장치가 설치되어있어 방사능 수치가 거의없어 사람들이 살 수 있다. 안전 구역밖으론 1단계, 2단계로 이루어져있으며 단계가 올라갈수록 위험해진다. 보통은 들어가지 않으나 그곳에 있을 생존자들을 구출하기 위해 가끔 직원들이 돌아다니기도 한다. 동마다 국경인 벽이 세워져있으며 통로가 뚫려있어 자유롭게 지나다닐수 있다. 1단계부터는 민간인은 출입이 금지되며 직원들에 한정하여 출입이 가능하나 방사능 오염의 위험으로 2주 이상 외출을 지양하고있다. 안전구역은 지하에도 건물이 있는 등 길이 뚫려있다 <del class="gray">개미굴</del>
+        </div>
+
+        <h2 id="s-3.3"><span class="Da"></span><a href="#s-r3.3"><b class="blue">3. 3</b></a>. 무법지대</h1>
+        <hr />
+        <div class="txt">
+            2단계를 벗어나면 나타나는 곳으로 3단계라고도 불리며 이름 그대로 무법지대이다. 방사능이 적나라하게 나타나는 곳으로 생존자가 있는지는 불명이나 능력자 보유로 추측이된다. 접근금지구역으로 아무이유없이 무법지대로 간것이 적발될 시 중죄로 인정되어 처벌을 받을 수 있다.직원들은 처벌 만으로 아 끝날 수 있으니 더욱 조심하자. <del class="gray">특히 A동은 잘못하면 훈련장으로 끌려갈 수 있으니…</del> 애초에 방사능이 적나라하게 퍼져있기에 그다지 가지않는것이 좋다. 또한 안전구역에 관해 적대적인 태도를 보인다. 이유는 불명. 무법지대는 주기적으로 위치가 바뀐다. 집단이 안전구역으로 접근하진 않으나 개인이 아주 가끔 안전구역으로 접근하기도한다.
+        </div>
+
+        <h2 id="s-3.4"><span class="Da"></span><a href="#s-r3.4"><b class="blue">3. 4</b></a>. 중립론자들</h1>
+        <hr />
+        <div class="txt">
+            2차 방사능이 터진 뒤 전쟁이 한창 발발할 때 갑작스레 나타난 의문에 조직이다. 현재는 직원들이나 대표들이 전투중 목숨이 위험해질 때 나타나 전투를 제지한다. 이능력을 무효화 시킬 수 있는 이능력을 지니고 있어 앞에 중립론자가 서 있다면 이능력 전투는 당연지사, 몸싸움까지 벌이기 어렵다. 의문에 조직인 만큼 큰 전투나 전쟁으로 인한 민간인 구출이 아닐 경우 일상속에 나타난 적은 없으며 큰 전투를 제외하곤 그들을 본사람은 아무도 없다고 봐도 된다. 그런만큼 신원 불명으로 본명과 나이는 당연지사 어느동에 출신인지도 알 수 없다.
+        </div>
+
+        <h2 id="s-3.5"><span class="Da"></span><a href="#s-r3.5"><b class="blue">3. 5</b></a>. 동</h1>
+        <hr />
+        <div class="txt">
+            A동,B동, C동, D동, L동으로 총 다섯동으로 나누어져 국가시스템으로 이루어져있다. 쉽게 나라로 생각하면 된다. 동의 대표에 따라 분위기가 천차만별이다.
+        </div>
+        <h3 id="s-3.5.1"><span class="Da"></span><a href="#s-r3.5.1"><b class="blue">3. 5. 1</b></a>. A동</h1>
+        <hr />
+        <div class="txt">
+            A대표가 거느리는 동. 주된 활동은 B,C동과 함께 민간인 보호이다. <del class="gray">직원은 보호되지 않는 듯 하다(...)</del> 분위기는 나쁘지 않으나 대표의 성격 때문인지 꽤나 몸을 사리는 분위기를 풍기고는 있다. 특히 직원들은 성격이 그다지 좋지않은 대표 아래에서 일을 하니 일부 직원들을 제외하면 대부분의 직원들은 대표님을 두려워한다. <del class="gray">누군가 잘못을하면 늦은 밤 훈령장에 비명소리가 들린다는 괴담 아닌 괴담이 돈다.</del>
+        </div>
+        <h3 id="s-3.5.2"><span class="Da"></span><a href="#s-r3.5.2"><b class="blue">3. 5. 2</b></a>. B동</h1>
+        <hr />
+        <div class="txt">
+            B대표가 거느리는 동. 주된 활동은 A,C동과 함께 민간인 보호이다. A동 보다는 풀어진 분위기이지만 만만치 않게 위험한 분위기가 물씬 풍기기도 한다. 분위기가 나쁘지는 않으나 대표를 만만하게 보는 직원과 민간인은 없다. 특히 A대표와 사이가 안좋은 탓인지 전쟁이 터져도 이상하지 않을만한 분위기이다. 직원들과 그외 민간인도 이를 인지하고 있으나 그다지 신경은 안 쓰는 편으로 보인다.
+        </div>
+        <h3 id="s-3.5.3"><span class="Da"></span><a href="#s-r3.5.3"><b class="blue">3. 5. 3</b></a>. C동</h1>
+        <hr />
+        <div class="txt">
+            C대표가 거느리는 동. 동들을 통틀어 가장 풀어지고 따뜻한 분위기를 풍긴다. 그래서인지 C동 직원들과 민간인들도 나쁜 사람은 그다지 없어보인다. 주된 활동은 A,B동과함께 민간인 보호이다. 대표의 성향때문인지 일도 편하고 야근도 자처하지만 않는다면 거의 없다고봐도 무방하다. 그렇다고 대표가 만만한 편은 아니다. 그다지 기어오르는 직원도 없으니 가장 평화로운 동이다.
+        </div>
+        <h3 id="s-3.5.4"><span class="Da"></span><a href="#s-r3.5.4"><b class="blue">3. 5. 4</b></a>. D동</h1>
+        <hr />
+        <div class="txt">
+            D대표가 거느리는 동. 동들을 통틀어 가장 어둡고 진지한 분위기이다. 주된 활동은 전투요원 양성, 자원채굴, 무기제작 등을 하고있다. 그래서인지 D동엔 민간인은 없으며 소수에 직원들로 이루어져있다. 아직까지 D동으로 갈 수 있는 경로는 A동에 폐쇠 지하철역 뿐인것으로 알려져있다. 직원들의 페이가 가장 쎈곳이라더라. 그도 그럴게 D대표는 경고먼저 하는 A대표와 다르게 거슬릴 시 즉시처분하기에 위험수당이 지급된다. <del class="gray">A동이 선녀가 되는 날도 온다.</del>
+        </div>
+        <h3 id="s-3.5.5"><span class="Da"></span><a href="#s-r3.5.5"><b class="blue">3. 5. 5</b></a>. L동</h1>
+        <hr />
+        <div class="txt">
+            L대표가 거느리는 동. C동과 꽤나 유사한 분위기이나 쎄한면이 없잖아 있다. 주된 활동은 방사능 연구등이 있다. D동과 마찬가지로 민간인 보호를 하지않기에 민간인 없이 소수에 직원들로만 이루어져있다. 아직까지 L동으로 갈 수 있는 경로는 A동에 폐쇠 지하철역 뿐인것으로 알려져있다. 언뜻보면 C대표와 비슷한 느낌을 풍기나 직원들을 챙겨주는 C대표와 다르게 누구에 눈치도 보지않고 사고만치고 다니기에 직원들이 애를 먹고있다더라. <del class="gray">어떻게 대표가 월급루팡일수가.</del>
+        </div>
+
+        <h2 id="s-3.6"><span class="Da"></span><a href="#s-r3.6"><b class="blue">3. 6</b></a>. 생존자</h1>
+        <hr />
+        <h3 id="s-3.6.1"><span class="Da"></span><a href="#s-r3.6.1"><b class="blue">3. 6. 1</b></a>. 직원</h1>
+        <hr />
+        <div class="txt">
+            각동에 있는 직원이다. 이능력부터 생김새, 회사에서 하는 일까지 천차만별 개성있다. 대부분은 인외들이 차지하고있으며 간간히 인간들도 보인다. 대부분에 직원들은 이능력이 존재하나 능력이 쓸 수 있으나 이능력이 전투에 도움이 되지않거나 아예 없는 직원들도 얼마든지 존재한다. 그런 직원들은 대부분 신체능력등 피지컬로 상대한다. 또한 나이도 방대한데 20대들은 당연지사 10대 초반부터 50대, 심지어 연령불명인 사람들까지 다양한 연령이 다닌다. 부서는 전투부서, 회계부서등 사무직부터 현장직까지 다양한 부서가 존재한다. 회사가 국가기관으로 봐도 무방한 만큼 직원들도 현실의 공무원과 흡사한 형태를 가지고있다. 계약직도 있으나 C동을 제외한 동들은 계약이 끝나도 퇴사하지 못한다. 이것은 보통 직원들도 포함되는 말이다. <del class="gray">말만 직원이지 노예랑 다를게 없다.</del>
+        </div>
+        <h3 id="s-3.6.2"><span class="Da"></span><a href="#s-r3.6.2"><b class="blue">3. 6. 1</b></a>. 민간인</h1>
+        <hr />
+        <div class="txt">
+            A,B,C동에서 살고있는 직원외에 사람들을 일컫는다. 백수부터 카페등 국가기관을 제외한 다양한 직장을 가지고있다. 직원들과 다를바없는 사람들이라 이능력부터 생김새 등 천차만별이다. 인외들이 많으나 간간히 인간들도 포함되어있다. 차별없이 조화를 이루며 살아가고 있으며 직원들보단 억압받지 않는 생활을 할 수 있으나 넘나들수있는 구역은 서로의 동뿐 안전구역 밖을 갈수 없는등 제약이 걸려있다. 그도 당연한 것이 민간인 보호가 주된 목적인 만큼 위험한 구역을 자유롭게 드나들 수 있게 할 수는 없다.
+        </div>
+        
+        <h1 id="s-4"><span class="Da"></span><a href="#s-r4"><b class="blue">4</b></a>. 특징</h1>
+        <hr />
+
+        <h1 id="s-5"><span class="Da"></span><a href="#s-r5"><b class="blue">5</b></a>. <a href="#">등장인물</a></h1>
+        <hr />
+        <div class="txt1">
+            자세한 내용은 <a href="#">중립론자들/등장인물</a> 문서를 참고하십시오.
+        </div>
+
+        <h1 id="s-6"><span class="Da"></span><a href="#s-r6"><b class="blue">6</b></a>. 외부링크</h1>
+        <hr />
+        <div class="txt2">
+            중립론자들 공식 트위터<a class="fn4" title="https://x.com/neutralists2023?s=20" href="#fn-4"><span id="rfn-4"></span>[4]</a><br>
+            중립론자들 공식 디스코드<a class="fn5" title="중립론자들 멤버만 들어갈 수 있는 디코로, 소통, 역극등 다양한 활동이 이루어져있다." href="#fn-5"><span id="rfn-5"></span>[5]</a>
+        </div>
+
+        <h1 id="s-7"><span class="Da"></span><a href="#s-r7"><b class="blue">7</b></a>. 여담</h1>
+        <hr />
+        <div class="txt">
+            <ul>
+                <li>2025년 3월 중립론자들 전용 웹사이트가 생성되었다. <del class="gray">해봤자 누군가의 개인 취미생활로 만들어진 짭무위키지만...</del></li>
+            </ul>
+        </div>
+        <br><br><br>
+        <hr />
+        <footer>
+            <a class="fn1" href="#rfn-1"><span id="fn-1"></span>[1]</a> 중립론자들의 총괄이다.<br>
+            <a class="fn2" href="#rfn-2"><span id="fn-2"></span>[2]</a> 2기 부괄모집으로 들어온 인원들이다.<br>
+            <a class="fn3" href="#rfn-3"><span id="fn-3"></span>[3]</a> 현재는 휴재중.<br>
+            <a class="fn4" href="#rfn-4"><span id="fn-4"></span>[4]</a> <a class="none"  href="https://x.com/neutralists2023?s=20">https://x.com/neutralists2023?s=20</a><br>
+            <a class="fn5" href="#rfn-5"><span id="fn-5"></span>[5]</a> 중립론자들 멤버만 들어갈 수 있는 디코로, 소통, 역극등 다양한 활동이 이루어져있다.
+            <br><br><br><br>
+            <hr />
+
+            <div class="last">
+                먼지위키는 백과사전이 아니며 검증되지 않았거나, 편향적이거나, 잘못된 서술이 있을 수 있습니다.<br>
+                수정사항을 알려드리면 추후 내용이 수정됩니다.<br>
+                <!-- 수정사항 문의하기
+                <form id="contactForm" onsubmit="sendEmail(event)">
+                    <label for="message">문의 내용:</label><br>
+                    <textarea id="message" name="message" required></textarea><br><br>
+                    <button type="submit">문의 보내기</button>
+                </form> -->
+                <!-- 문의하기 버튼 -->
+                <button class="open-btn" onclick="openModal()">수정사항 문의하기</button>
+
+                <!-- 모달 창 -->
+            <div id="inquiryModal" class="modal">
+                <div class="modal-content">
+                    <span class="close-btn" onclick="closeModal()">&times;</span>
+                    <h3>수정사항 문의하기</h3>
+                    <form id="contactForm" onsubmit="sendEmail(event)">
+                        <label for="message">수정 내용:</label><br>
+                        <textarea id="message" required onfocus="clearPlaceholder()" onblur="restorePlaceholder()">수정할 내용 > 수정된 내용 순으로 적어주세요.</textarea>
+                        <button type="submit" class="send-btn">문의 보내기</button>
+                    </form>
+                </div>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>
